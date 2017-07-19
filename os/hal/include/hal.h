@@ -128,6 +128,7 @@
 #include "hal_ext.h"
 #include "hal_gpt.h"
 #include "hal_i2c.h"
+#include "hal_i2c_slave.h"
 #include "hal_i2s.h"
 #include "hal_icu.h"
 #include "hal_mac.h"

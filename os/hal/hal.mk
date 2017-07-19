@@ -26,6 +26,9 @@ endif
 ifneq ($(findstring HAL_USE_I2C TRUE,$(HALCONF)),)
 HALSRC += $(CHIBIOS)/os/hal/src/hal_i2c.c
 endif
+ifneq ($(findstring HAL_USE_I2C_MASTER TRUE,$(HALCONF)),)
+HALSRC += $(CHIBIOS)/os/hal/src/hal_i2c.c
+endif
 ifneq ($(findstring HAL_USE_I2S TRUE,$(HALCONF)),)
 HALSRC += $(CHIBIOS)/os/hal/src/hal_i2s.c
 endif
