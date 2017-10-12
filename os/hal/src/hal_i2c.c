@@ -262,7 +262,7 @@ msg_t i2cMasterReceiveTimeout(I2CDriver *i2cp,
  */
 void i2cLock(I2CDriver *i2cp, systime_t lockDuration)
 {
-  chDbgCheck((i2cp != NULL), "i2cLock");
+  chDbgCheck((i2cp != NULL));
   chSysLock();
   i2c_lld_lock(i2cp, lockDuration);
   chSysUnlock();
@@ -277,7 +277,7 @@ void i2cLock(I2CDriver *i2cp, systime_t lockDuration)
  **/
 void i2cUnlock(I2CDriver *i2cp)
 {
-  chDbgCheck((i2cp != NULL), "i2cUnlock");
+  chDbgCheck((i2cp != NULL));
   chSysLock();
   i2c_lld_unlock(i2cp);
   chSysUnlock();
