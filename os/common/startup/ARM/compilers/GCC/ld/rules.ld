@@ -100,7 +100,7 @@ SECTIONS
     {
         *(.eh_frame)
     } > flash
-    
+
     .textalign : ONLY_IF_RO
     {
         . = ALIGN(8);
@@ -141,7 +141,7 @@ SECTIONS
         . = ALIGN(4);
         PROVIDE(_bss_end = .);
         PROVIDE(end = .);
-    } > BSS_RAM    
+    } > BSS_RAM
 
     .ram0 (NOLOAD) : ALIGN(4)
     {
@@ -151,6 +151,15 @@ SECTIONS
         . = ALIGN(4);
         __ram0_free__ = .;
     } > ram0
+
+    .ram_vectors (NOLOAD) : ALIGN(4)
+    {
+        . = ALIGN(4);
+        *(.ram_vectors)
+        *(.ram_vectors.*)
+        . = ALIGN(4);
+        __ram_vectors_free__ = .;
+    } > ram_vectors
 
     .ram1 (NOLOAD) : ALIGN(4)
     {

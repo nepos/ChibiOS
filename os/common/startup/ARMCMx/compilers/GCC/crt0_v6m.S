@@ -60,7 +60,7 @@
  * @note    This option can only be enabled on Cortex-M0+ cores.
  */
 #if !defined(CRT0_VTOR_INIT) || defined(__DOXYGEN__)
-#define CRT0_VTOR_INIT                      FALSE
+#define CRT0_VTOR_INIT                      TRUE
 #endif
 
 /**
