@@ -39,8 +39,6 @@ __ram7_start__          = ORIGIN(ram7);
 __ram7_size__           = LENGTH(ram7);
 __ram7_end__            = __ram7_start__ + __ram7_size__;
 
-ENTRY(Reset_Handler)
-
 SECTIONS
 {
     .data : ALIGN(4)

@@ -14,8 +14,6 @@
     limitations under the License.
 */
 
-ENTRY(Reset_Handler)
-
 SECTIONS
 {
     .vectors : ALIGN(16)
