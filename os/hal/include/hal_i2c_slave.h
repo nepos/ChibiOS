@@ -385,6 +385,7 @@ static inline
 static inline void
   i2cSlaveReceiveI(I2CDriver *i2cp, const I2CSlaveMsg *rxMsg)
 {
+  chDbgCheckClassI();
   osalDbgCheck(i2cp != NULL && rxMsg != NULL);
   i2c_lld_slaveReceive(i2cp, rxMsg);
 }
@@ -410,8 +411,9 @@ static inline void
       Does not affect the processing of any message reply being sent
 */
 {
-   osalDbgCheck(i2cp != NULL && replyMsg != NULL);
-   i2c_lld_slaveReply(i2cp, replyMsg);
+    chDbgCheckClassI();
+    osalDbgCheck(i2cp != NULL && replyMsg != NULL);
+    i2c_lld_slaveReply(i2cp, replyMsg);
 }
 
 #ifdef __cplusplus
