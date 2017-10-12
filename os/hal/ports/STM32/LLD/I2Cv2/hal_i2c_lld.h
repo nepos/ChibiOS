@@ -15,7 +15,7 @@
 */
 /*
    Concepts and parts of this file have been contributed by Uladzimir Pylinsky
-   aka barthess. I2C Slave API for Chibios V2.x V1 I2C originally contributed
+   aka barthess. I2C Slave API for Chibios V2.x V1 I2C originally contributed 
    by Brent Roman (brent@mbari.org), ported to Chibios V3, V2 I2C by steved
  */
 
@@ -371,7 +371,7 @@
 
 /**
  * @brief   Type representing an I2C address.
- * @note	For a 7-bit address, this takes values 0..0x7f, which are then
+ * @note	For a 7-bit address, this takes values 0..0x7f, which are then 
  * 				shifted left one and the R/W bit added when required
  */
 typedef uint16_t i2caddr_t;
@@ -571,8 +571,8 @@ struct I2CDriver {
    * @brief     Pointer to the I2Cx registers block.
    */
   I2C_TypeDef               *i2c;
-
-
+  
+  
   /**
    * @brief     low level I2C interface / protocol state
    */
