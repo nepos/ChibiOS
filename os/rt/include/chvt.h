@@ -720,7 +720,9 @@ static inline void chVTDoTickI(void) {
     chSysUnlockFromISR();
 
     /* The callback is invoked outside the kernel critical zone.*/
-    fn(vtp->par);
+    if (fn) {
+        fn(vtp->par);
+    }
 
     /* Re-entering the critical zone in order to continue the exploration
        of the list.*/
