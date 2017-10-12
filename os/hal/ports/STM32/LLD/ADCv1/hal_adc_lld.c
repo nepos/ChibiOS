@@ -407,8 +407,9 @@ void adcSTM32DisableTS(void) {
  * @notapi
  */
 void adcSTM32EnableVBAT(void) {
-
+#if !defined (STM32F030xC)
   ADC->CCR |= ADC_CCR_VBATEN;
+#endif
 }
 
 /**
@@ -422,8 +423,9 @@ void adcSTM32EnableVBAT(void) {
  * @notapi
  */
 void adcSTM32DisableVBAT(void) {
-
+#if !defined (STM32F030xC)
   ADC->CCR &= ~ADC_CCR_VBATEN;
+#endif
 }
 #endif /* STM32F0XX */
 
