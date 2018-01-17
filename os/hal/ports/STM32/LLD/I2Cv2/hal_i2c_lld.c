@@ -381,10 +381,18 @@ static void i2c_lld_abort_operation(I2CDriver *i2cp) {
  */
 static inline void stopTimer(I2CDriver *i2cp)
 {
+    osalSysLock();
+    chVTResetI(&i2cp->timer);
+    osalSysUnlock();
+}
+
+static inline void stopTimerI(I2CDriver *i2cp)
+{
     osalSysLockFromISR();
     chVTResetI(&i2cp->timer);
     osalSysUnlockFromISR();
 }
+
 #else
 #define stopTimer(ignored)  {}
 #endif
@@ -442,7 +450,7 @@ static void slaveTimeExpired(void *i2cv) {
  */
 static inline void i2cStartSlaveAction(I2CDriver *i2cp, i2caddr_t targetAdr)
 {
-    stopTimer(i2cp);
+    stopTimerI(i2cp);
     i2cp->targetAdr = targetAdr;
     i2cp->slaveBytes = 0;
     i2cp->slaveErrors = 0;
@@ -597,7 +605,7 @@ static void i2c_lld_serve_interrupt(I2CDriver *i2cp, uint32_t isr) {
             if (i2cp->slaveReply->processMsg)
                 i2cp->slaveReply->processMsg(i2cp);
             i2cp->targetAdr = i2cInvalidAdr;
-            stopTimer(i2cp);
+            stopTimerI(i2cp);
             return;
         }
 #endif
@@ -991,7 +999,7 @@ static void i2c_lld_serve_interrupt(I2CDriver *i2cp, uint32_t isr) {
         dp->CR1 &= ~I2C_CR1_STOPIE;					// Disable STOP interrupt
         i2cDisableReceiveOperation(i2cp);           // These two may not be necessary
         i2cDisableTransmitOperation(i2cp);
-        stopTimer(i2cp);
+        stopTimerI(i2cp);
         i2cp->mode = i2cIdle;
     }
 #endif
