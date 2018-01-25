@@ -186,12 +186,12 @@ msg_t i2cMasterTransmitTimeout(I2CDriver *i2cp,
   i2cp->state = I2C_ACTIVE_TX;
   rdymsg = i2c_lld_master_transmit_timeout(i2cp, addr, txbuf, txbytes,
                                            rxbuf, rxbytes, timeout);
-  if (rdymsg == MSG_TIMEOUT) {
-    i2cp->state = I2C_LOCKED;
-  }
-  else {
+  //if (rdymsg == MSG_TIMEOUT) {
+  //  i2cp->state = I2C_LOCKED;
+  //}
+  //else {
     i2cp->state = I2C_READY;
-  }
+  //}
   osalSysUnlock();
   return rdymsg;
 }
