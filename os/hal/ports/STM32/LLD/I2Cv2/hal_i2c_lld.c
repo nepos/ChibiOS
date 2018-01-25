@@ -1019,7 +1019,7 @@ static void i2c_lld_serve_error_interrupt(I2CDriver *i2cp, uint32_t isr) {
 
     i2cDisableReceiveOperation(i2cp);
     i2cDisableTransmitOperation(i2cp);
-    stopTimer(i2cp);
+    stopTimerI(i2cp);
 
 #if HAL_USE_I2C_SLAVE
     // In slave mode, just clock errors and return
