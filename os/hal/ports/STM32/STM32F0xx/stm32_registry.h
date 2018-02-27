@@ -115,7 +115,11 @@
 #define STM32_HAS_ETH                       FALSE
 
 /* EXTI attributes.*/
+#if defined(STM32F030xC)
+#define STM32_EXTI_NUM_LINES                28
+#else
 #define STM32_EXTI_NUM_LINES                20
+#endif
 #define STM32_EXTI_IMR_MASK                 0xFFF50000U
 
 /* GPIO attributes.*/
