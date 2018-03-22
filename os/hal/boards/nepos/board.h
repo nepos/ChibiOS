@@ -295,7 +295,8 @@
  * PB6  - PIN6                      (input floating).
  * PB7  - PIN7                      (input floating).
  * PB8  - PIN8                      (input floating).
- * PB9  - PIN9                      (input floating).
+ PB9: VBUS Enable must be keep low here, otherwise stm keeps resetting itself, if battery is empty
+ * PB9  - PIN9                      (output pull-push low).
  * PB10 - PIN10                     (input floating).
  * PB11 - PIN11                     (input floating).
  * PB12 - PIN12                     (input floating).
@@ -312,7 +313,7 @@
                                      PIN_MODE_OUTPUT(GPIOB_PIN6) |           \
                                      PIN_MODE_INPUT(GPIOB_PIN7) |           \
                                      PIN_MODE_INPUT(GPIOB_PIN8) |           \
-                                     PIN_MODE_INPUT(GPIOB_PIN9) |           \
+                                     PIN_MODE_OUTPUT(GPIOB_PIN9) |           \
                                      PIN_MODE_INPUT(GPIOB_PIN10) |          \
                                      PIN_MODE_INPUT(GPIOB_PIN11) |          \
                                      PIN_MODE_INPUT(GPIOB_PIN12) |          \
@@ -328,7 +329,7 @@
                                      PIN_OTYPE_OPENDRAIN(GPIOB_PIN6) |       \
                                      PIN_OTYPE_OPENDRAIN(GPIOB_PIN7) |       \
                                      PIN_OTYPE_OPENDRAIN(GPIOB_PIN8) |       \
-                                     PIN_OTYPE_OPENDRAIN(GPIOB_PIN9) |       \
+                                     PIN_OTYPE_PUSHPULL(GPIOB_PIN9) |       \
                                      PIN_OTYPE_OPENDRAIN(GPIOB_PIN10) |      \
                                      PIN_OTYPE_OPENDRAIN(GPIOB_PIN11) |      \
                                      PIN_OTYPE_OPENDRAIN(GPIOB_PIN12) |      \
@@ -376,7 +377,7 @@
                                      PIN_ODR_HIGH(GPIOB_PIN6) |             \
                                      PIN_ODR_HIGH(GPIOB_PIN7) |             \
                                      PIN_ODR_HIGH(GPIOB_PIN8) |             \
-                                     PIN_ODR_HIGH(GPIOB_PIN9) |             \
+                                     PIN_ODR_LOW(GPIOB_PIN9)  |             \
                                      PIN_ODR_HIGH(GPIOB_PIN10) |            \
                                      PIN_ODR_HIGH(GPIOB_PIN11) |            \
                                      PIN_ODR_HIGH(GPIOB_PIN12) |            \
