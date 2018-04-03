@@ -77,8 +77,10 @@ typedef uint32_t expchannel_t;
  *
  * @param[in] extp      pointer to the @p EXPDriver object triggering the
  *                      callback
+ * @paran[in] channel   channel on which the interrupt occured
+ * @paran[in] arg       Pointer to user data
  */
-typedef void (*extcallback_t)(EXTDriver *extp, expchannel_t channel);
+typedef void (*extcallback_t)(EXTDriver *extp, expchannel_t channel, void* arg);
 
 /**
  * @brief   Channel configuration structure.
@@ -95,6 +97,7 @@ typedef struct {
    *           of an interrupt source.
    */
   extcallback_t         cb;
+  void                  *arg;
 } EXTChannelConfig;
 
 /**
