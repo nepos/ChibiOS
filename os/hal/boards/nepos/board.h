@@ -287,7 +287,7 @@
  * GPIOB setup:
  *
  * PB0  - PIN0                      (input floating).
- * PB1  - PIN1                      (input floating).
+ * PB1  - PIN1                      (output push-pull high). //Som Power
  * PB2  - PIN2                      (input floating).
  * PB3  - PIN3                      (input floating).
  * PB4  - PIN4                      (input floating).
@@ -321,7 +321,7 @@
                                      PIN_MODE_INPUT(GPIOB_PIN14) |          \
                                      PIN_MODE_INPUT(GPIOB_PIN15))
 #define VAL_GPIOB_OTYPER            (PIN_OTYPE_OPENDRAIN(GPIOB_PIN0) |       \
-                                     PIN_OTYPE_OPENDRAIN(GPIOB_PIN1) |       \
+                                     PIN_OTYPE_PUSHPULL(GPIOB_PIN1) |       \
                                      PIN_OTYPE_OPENDRAIN(GPIOB_PIN2) |       \
                                      PIN_OTYPE_OPENDRAIN(GPIOB_PIN3) |       \
                                      PIN_OTYPE_OPENDRAIN(GPIOB_PIN4) |       \
